@@ -9,6 +9,7 @@
 
 	const store = writable();
 	let mounted = false;
+	let spy = false;
 
 	supabase
 		.channel('cn_word')
@@ -51,11 +52,12 @@
 			<div
 				transition:fly|global={{ delay: 50 * i, y: Math.random() * 500, x: Math.random() * -500 }}
 			>
-				<Card {word} {color} {revealed} on:click={() => revealCard(i)} />
+				<Card {word} {color} revealed={spy || revealed} on:click={() => revealCard(i)} />
 			</div>
 		{/each}
 	{/if}
 </div>
+<button on:click={() => (spy = !spy)}>🕵️</button>
 
 <style>
 	.board {
@@ -63,5 +65,12 @@
 		grid-template-columns: repeat(5, 1fr);
 		grid-template-rows: repeat(5, 1fr);
 		gap: 1rem;
+		height: 85vh;
+	}
+
+	button {
+		margin-top: 1rem;
+		font-size: 1rem;
+		height: 5vh;
 	}
 </style>

@@ -4,7 +4,7 @@
 	export let revealed: boolean;
 </script>
 
-<div style:background={revealed ? color : 'lightgrey'} on:click>
+<div class={revealed ? color : 'grey'} on:click>
 	<p>{word}</p>
 </div>
 
@@ -21,10 +21,29 @@
 		&:hover {
 			cursor: pointer;
 		}
+
+		&.blue {
+			background-color: #3d95c1;
+		}
+
+		&.red {
+			background-color: #cc4141;
+		}
+
+		&.black {
+			background-color: #2d2828;
+		}
+
+		&.white {
+			background-color: #bfc69b;
+		}
+
+		&.grey {
+			background-color: #d5d6cd;
+		}
 	}
 
 	p {
-		font-family: monospace;
 		font-weight: 600;
 		text-transform: uppercase;
 		letter-spacing: 0.1rem;

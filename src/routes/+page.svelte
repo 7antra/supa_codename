@@ -10,7 +10,6 @@
 		});
 
 		const data = await promise.json();
-		console.log('data : ', data);
 
 		await goto(`/${data.word_id}`);
 	};
