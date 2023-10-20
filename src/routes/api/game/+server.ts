@@ -29,7 +29,7 @@ export const POST = async () => {
         revealed: false,
     }))
 
-    const word_id = slugify(words[0]);
+    const word_id = slugify(`${words[0]}-${words[1]}`);
 
     const { data, error } = await supabase.from('cn_games')
         .insert({

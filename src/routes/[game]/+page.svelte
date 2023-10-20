@@ -18,7 +18,8 @@
 			{
 				event: '*',
 				schema: 'public',
-				table: 'cn_games'
+				table: 'cn_games',
+				filter: `word_id=eq.${data.game.word_id}`
 			},
 			(payload) => {
 				const update = payload?.new;
