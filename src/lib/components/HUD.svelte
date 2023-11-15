@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { score } from '$lib/store';
+	import { score, players } from '$lib/store';
 
 	export let spy: boolean = false;
 	export let isSpy: boolean = false;
@@ -8,6 +8,7 @@
 <div class="hud">
 	<p>Red : {$score.red}</p>
 	<p>Blue : {$score.blue}</p>
+	<p>Players ({$players.length})</p>
 	{#if isSpy}
 		<button on:click={() => (spy = !spy)}>🕵️</button>
 	{/if}

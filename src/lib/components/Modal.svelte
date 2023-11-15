@@ -1,10 +1,25 @@
 <script lang="ts">
 	import { fly } from 'svelte/transition';
-	import { onMount } from 'svelte';
+
+	const clickOutside = (node: HTMLElement) => {
+		const handleClick = (event: MouseEvent) => {
+			if (node && !node.contains(event.target as Node)) {
+				dispatchEvent(new CustomEvent('close'));
+			}
+		};
+
+		document.addEventListener('click', handleClick);
+
+		return {
+			destroy() {
+				document.removeEventListener('click', handleClick);
+			}
+		};
+	};
 </script>
 
 <div class="container">
-	<div class="modal" transition:fly={{ y: -100 }}>
+	<div class="modal" transition:fly={{ y: -100 }} use:clickOutside>
 		<slot><!-- optional fallback --></slot>
 	</div>
 </div>
