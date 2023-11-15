@@ -8,7 +8,7 @@
 <div class="hud">
 	<p>Red : {$score.red}</p>
 	<p>Blue : {$score.blue}</p>
-	<p>Players ({$players.length})</p>
+	<p>Players ({$players?.length ?? 0})</p>
 	{#if isSpy}
 		<button on:click={() => (spy = !spy)}>🕵️</button>
 	{/if}

@@ -39,7 +39,7 @@ export const score = derived(game, $game => {
 })
 
 export const players = derived(game, $game => {
-    if (!$game) return [];
+    if (!$game?.players?.length) return [];
 
     return $game?.players?.sort(({ team }) => (team === 'red' ? 1 : -1));
 })

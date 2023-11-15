@@ -5,7 +5,7 @@
 	import { onDestroy, onMount } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { PUBLIC_DB_TENANT } from '$env/static/public';
-	import { game, type Game } from '$lib/store';
+	import { game, players, type Game } from '$lib/store';
 	import Modal from '$lib/components/Modal.svelte';
 	import PlayersList from '$lib/components/PlayersList.svelte';
 
@@ -41,7 +41,9 @@
 	};
 
 	const addPlayer = async (name: string) => {
-		isSpy = $game?.players.filter(({ spy }) => spy).length < 2;
+		isSpy = $players.filter(({ spy }) => spy).length < 2;
+		const redTeam = $players.filter(({ team }) => team === 'red')?.length;
+		const blueTeam = $players.filter(({ team }) => team === 'blue')?.length;
 
 		const { error } = await supabase
 			.from(PUBLIC_DB_TENANT)
@@ -50,7 +52,7 @@
 					...($game?.players ?? []),
 					{
 						name,
-						team: 'red',
+						team: blueTeam < redTeam ? 'blue' : 'red',
 						spy: isSpy
 					}
 				]
