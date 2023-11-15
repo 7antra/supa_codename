@@ -1,3 +1,4 @@
+import { PUBLIC_DB_TENANT } from "$env/static/public";
 import { supabase } from "$lib/DB";
 import { dico } from "$lib/dico";
 import { slugify } from "$lib/helpers";
@@ -31,7 +32,7 @@ export const POST = async () => {
 
     const word_id = slugify(`${words[0]}-${words[1]}`);
 
-    const { data, error } = await supabase.from('cn_games')
+    const { data, error } = await supabase.from(PUBLIC_DB_TENANT)
         .insert({
             word_id,
             board,

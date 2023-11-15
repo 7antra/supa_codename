@@ -23,23 +23,23 @@
 		}
 
 		&.blue {
-			background-color: #3d95c1;
+			background-color: var(--blue);
 		}
 
 		&.red {
-			background-color: #cc4141;
+			background-color: var(--red);
 		}
 
 		&.black {
-			background-color: #2d2828;
+			background-color: var(--black);
 		}
 
 		&.white {
-			background-color: #bfc69b;
+			background-color: var(--white);
 		}
 
 		&.grey {
-			background-color: #d5d6cd;
+			background-color: var(--grey);
 		}
 	}
 

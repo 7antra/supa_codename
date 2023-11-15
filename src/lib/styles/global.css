@@ -1,3 +1,11 @@
+:root {
+    --blue: #3d95c1;
+    --red: #cc4141;
+    --black: #2d2828;
+    --white: #bfc69b;
+    --grey: #d5d6cd;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -23,6 +31,8 @@ input {
     border: 3px solid black;
     border-radius: 4px;
     font-family: 'Space Mono', monospace;
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem ;
 }
 button {
     &:hover {
